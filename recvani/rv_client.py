@@ -3,7 +3,7 @@ import json
 import hmac
 import hashlib
 import base64
-from recvani.requests.requests import base_request
+from recvani.rv_requests import base_request
 
 class rv_client(object):
 

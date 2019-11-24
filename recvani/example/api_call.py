@@ -1,5 +1,5 @@
 from recvani.rv_client import rv_client
-from recvani.requests.requests import simple_interaction
+from recvani.rv_requests import simple_interaction
 from config import *
 import time
 

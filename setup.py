@@ -6,7 +6,7 @@ with open("README.md", "r") as fh:
 
 setuptools.setup(
     name="recvani",
-    version="0.0.1",
+    version="0.0.4",
     author="Anshuman kumar",
     author_email="anshuman@recvani.com",
     description="The client side python apis for making integration with recvani serveers",

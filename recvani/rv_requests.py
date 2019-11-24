@@ -80,7 +80,7 @@ class rec_request(base_request):
         return 'get_rec'
 
     def get_params(self):
-        return [self.uid, self.count, self.tag, self.history]
+        return [self.uid, self.count, self.tags, self.history]
 
 class batch_param(base_request):
 

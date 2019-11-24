@@ -1,5 +1,5 @@
 from recvani.rv_client import rv_client
-from recvani.requests.requests import simple_interaction, batch_interaction
+from recvani.rv_requests import simple_interaction, batch_interaction
 import multiprocessing
 import os
 import time 
