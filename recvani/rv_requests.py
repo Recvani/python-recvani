@@ -82,14 +82,29 @@ class rec_request(base_request):
     def get_params(self):
         return [{"uid":self.uid, "count":self.count, "tags":self.tags, "history":self.history}]
 
+class item_param():
+    def __init__(self, eid, exp_time=None, tags=None):
+        self.eid = eid
+        self.exp_time = exp_time
+        self.tags = tags
+
+    def get_params(self):
+        result = {"eid": self.eid}
+        if (self.exp_time != None):
+            result["exp_time"]  = self.exp_time
+        if (self.tags != None):
+            result["tags"] = self.tags
+        return result
+
+    
 class batch_param(base_request):
 
-    def __init__(self, batch_p  ):
-        self.batch_p = batch_p
+    def __init__(self, params  ):
+        self.params = params
 
     def get_method(self):
         return 'set_batch_param'
 
     def get_params(self):
-        return [batch_p]
+        return [[param.get_params() for param in self.params]]
 
