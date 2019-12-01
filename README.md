@@ -30,6 +30,7 @@ We can directly install python client using pip
 Client need model name, client key and model key for connecting to recvani server. You can get these by contacting us.
 
 ### Creating connection 
+
 Setting up connection is quite easy. 
 
     from recvani.rv_client import rv_client
@@ -38,8 +39,7 @@ Setting up connection is quite easy.
     
 ### Sending Interacations
 
- <br>
-Send Single Interaction
+#### Send Single Interaction
     
     from recvani.rv_requests import simple_interaction
     import time
@@ -53,8 +53,8 @@ Send Single Interaction
     
     result = client.send(interaction)  #result will 1 on sucess otherwise exception will be thrown. Better to catch it.
 
- <br>  
-Send Batch Interactions
+   
+#### Send Batch Interactions
     
     from recvani.rv_requests import batch_interaction, simple_interaction
     import time
@@ -74,10 +74,7 @@ Send Batch Interactions
 
 We can attach tags and expiry time for every item
     
-
-
-  <br>   
-Send expiry time 
+#### Send expiry time 
     
     from recvani.rv_requests import exp_request
     import time
@@ -86,16 +83,14 @@ Send expiry time
     rexp = exp_request("ITEM1", EXP_TIME)
     result = self.client.send(rexp)
 
-   <br>
-Send tags 
+#### Send tags 
 
     from recvani.rv_requests import exp_request
     TAGS = ["TAG1", "TAG2"]
     trequest = tag_request("STORY1", TAGS)
     result = self.client.send(trequest)
     
-   <br>
-Send in bulk
+#### Send in bulk
     
      from recvani.rv_requests import batch_param, item_param
      import time
@@ -113,8 +108,8 @@ Send in bulk
 ### Getting Result
 
 We can get the final recommendation for the user. We can filter history and send you items for particular tag.
- <br>
-Overall Recommendation
+
+#### Overall Recommendation
 
     from recvani.rv_requests import rec_request 
     
@@ -126,14 +121,14 @@ Overall Recommendation
     rc = rec_request("USER1", 1, [], True)
     result = self.client.send(rc) # Result will be list of items
   
- <br>
-  Tagged Recommedation
+#### Tagged Recommedation
 
     rc = rec_request("USER1", 10, [["TAG1"]], True)
     result = self.client.send(rc) # Will give 10 stories with "TAG1" attached to it  
 
-   <br>
- Tags can be used to make complex queries. For Example 
+#### Complex Queries 
+
+Tags can be used to make complex queries. For Example 
 
     TAGS = [["TAG1", "TAG2"], ["TAG4"]]
     
