@@ -66,7 +66,7 @@ Setting up connection is quite easy.
     
     bis = batch_interaction(bi)
     
-    result = self.client.send(bis)
+    result = client.send(bis)
 
 
 ### Sending Parameters
@@ -81,14 +81,14 @@ We can attach tags and expiry time for every item
   
     EXP_TIME = time.time() + 30*24*3600 # The time you want to expire the item. 
     rexp = exp_request("ITEM1", EXP_TIME)
-    result = self.client.send(rexp)
+    result = client.send(rexp)
 
 #### Send tags 
 
     from recvani.rv_requests import exp_request
     TAGS = ["TAG1", "TAG2"]
     trequest = tag_request("STORY1", TAGS)
-    result = self.client.send(trequest)
+    result = client.send(trequest)
     
 #### Send in bulk
     
@@ -101,7 +101,7 @@ We can attach tags and expiry time for every item
      
      bparam = batch_param([param1, param2, param3])
      
-     result = self.client.send(bparam)
+     result = client.send(bparam)
        
 
 
@@ -119,12 +119,12 @@ We can get the final recommendation for the user. We can filter history and send
     HISTORY = False     # Will not serve already serverd item.
     
     rc = rec_request("USER1", 1, [], True)
-    result = self.client.send(rc) # Result will be list of items
+    result = client.send(rc) # Result will be list of items
   
 #### Tagged Recommedation
 
     rc = rec_request("USER1", 10, [["TAG1"]], True)
-    result = self.client.send(rc) # Will give 10 stories with "TAG1" attached to it  
+    result = client.send(rc) # Will give 10 stories with "TAG1" attached to it  
 
 #### Complex Queries 
 
