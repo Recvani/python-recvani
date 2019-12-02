@@ -1,23 +1,23 @@
 # python-recvani
 This contains the client side api for use with recvani server. Recvani is collabrative learning platform for any bussiness  where a user and item interact. So client can send score for user interactions and ask for recommendation for user. And all these things in real time.
 
-
+Check us out  at https://www.recvani.com
 ## Features
 * **Ease to integration:** 
 
->>>>Integrating is as simple as integrating a database.
+ &nbsp;&nbsp;&nbsp;&nbsp;Integrating is as simple as integrating a database.
 * **Real time system:** 
     
->>>>User interaction are taken care within milliseconds for recommendation
+ &nbsp;&nbsp;&nbsp;&nbsp;User interaction are taken care within milliseconds for recommendation
 * **Can Scale very easily:** 
 
->>>>It can easily support upto millions of users. 
+ &nbsp;&nbsp;&nbsp;&nbsp;It can easily support upto millions of users. 
 * **Low on cost:** 
 
->>>>Cost for deploying will be much less than your inhouse machine learning cost.
+ &nbsp;&nbsp;&nbsp;&nbsp;Cost for deploying will be much less than your inhouse machine learning cost.
 * **Support categorization:** 
 
->>>>Client can easily ask for specific category of item for a user.
+ &nbsp;&nbsp;&nbsp;&nbsp;Client can easily ask for specific category of item for a user.
     
 
 ## Installation
@@ -85,7 +85,7 @@ We can attach tags and expiry time for every item
 
 #### Send tags 
 
-    from recvani.rv_requests import exp_request
+    from recvani.rv_requests import tag_request
     TAGS = ["TAG1", "TAG2"]
     trequest = tag_request("STORY1", TAGS)
     result = client.send(trequest)
