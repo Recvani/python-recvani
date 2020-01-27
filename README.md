@@ -116,14 +116,14 @@ We can get the final recommendation for the user. We can filter history and send
     USER = "USER1"      # USER ID
     COUNT = 10          # Count of Recommended item to fetch
     TAGS = []           # Tags of item, Empty for overall 
-    HISTORY = False     # Will not serve already serverd item.
+    HISTORY = rec_request.FULL_HISTORY_FILTER     # Will not serve already serverd item.
     
-    rc = rec_request("USER1", 1, [], True)
+    rc = rec_request(USER, COUNT, [], HISTORY)
     result = client.send(rc) # Result will be list of items
   
 #### Tagged Recommedation
 
-    rc = rec_request("USER1", 10, [["TAG1"]], True)
+    rc = rec_request(USER, COUNT, [["TAG1"]], HISTORY)
     result = client.send(rc) # Will give 10 stories with "TAG1" attached to it  
 
 #### Complex Queries 
