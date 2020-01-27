@@ -70,17 +70,20 @@ class exp_request(base_request):
 
 class rec_request(base_request):
 
-    def __init__(self, uid, count, tags, history=False ):
+    FULL_HISTORY_FILTER =  -100
+    NO_HISTORY_FILTER  = -1
+
+    def __init__(self, uid, count, tags, historyFilterTime=FULL_HISTORY_FILTER ):
         self.uid = uid
         self.count = count
         self.tags = tags
-        self.history = history
+        self.historyFilterTime = historyFilterTime
 
     def get_method(self):
         return 'get_rec'
 
     def get_params(self):
-        return [{"uid":self.uid, "count":self.count, "tags":self.tags, "history":self.history}]
+        return [{"uid":self.uid, "count":self.count, "tags":self.tags, "history":self.historyFilterTime}]
 
 class item_param():
     def __init__(self, eid, exp_time=None, tags=None):
