@@ -27,7 +27,15 @@ class rv_client(object):
         raw_data = json.dumps(dt)
         sign = self._get_sign(raw_data)
         headers = self._get_headers(sign)
-        res = self.session.post(self.uri, raw_data, headers=headers)
+        res = None
+        retries = 0
+        success = False
+        while (retries <5 and  (success == False)):
+            try:
+                res = self.session.post(self.uri, raw_data, headers=headers)
+                success = True
+            except (requests.ConnectionError):
+                retries +=1
         if (res.status_code != 200):
             print(res.content)
             raise RuntimeError("Got non 200 response")
@@ -36,7 +44,6 @@ class rv_client(object):
             if (dt["error"] == None):
                 return  dt['result']
             raise RuntimeError("Got Error in request: " + dt["error"])
-        
 
     def _get_sign(self, data):
         raw_sign = hmac.new(str.encode(self.secret_key), str.encode(data), hashlib.sha256).digest()
